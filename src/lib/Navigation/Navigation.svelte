@@ -10,7 +10,7 @@
 			<nav class="list-nav p-2">
 				<ul>
 					<li><a href="/" >Summary</a></li>
-					<li><a href="/about" >Detail</a></li>
+					<li><a href="/Page2" >Detail</a></li>
 				</ul>
 			</nav>
 	</svelte:fragment>
