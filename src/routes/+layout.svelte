@@ -1,48 +1,50 @@
-<script>
-	// The ordering of these imports is critical to your app working properly
-	import '@skeletonlabs/skeleton/themes/theme-hamlindigo.css';
-	// If you have source.organizeImports set to true in VSCode, then it will auto change this ordering
+<script lang="ts">
+	
+	import '../theme.postcss';
 	import '@skeletonlabs/skeleton/styles/all.css';
-	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+	import Navigation from '$lib/Navigation/Navigation.svelte';
+
+	import { LightSwitch } from '@skeletonlabs/skeleton';
+
+let sidebarVisible = ""
+
+	function toggleSidebar(): void {
+		sidebarVisible = sidebarVisible === ""?"hidden":""
+}
+
 </script>
 
+
 <!-- App Shell -->
-<AppShell>
+<AppShell slotSidebarLeft="bg-surface-500/5 {sidebarVisible}">
 	<svelte:fragment slot="header">
 		<!-- App Bar -->
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<strong class="text-xl uppercase">Skeleton</strong>
-			</svelte:fragment>
+				<div class="flex items-center text-2xl">
+						<button class="btn btn-sm mr-4" on:click={toggleSidebar}>
+								<span>
+										<svg viewBox="0 0 100 80" class="fill-token w-4 h-4">
+												<rect width="100" height="20" />
+												<rect y="30" width="100" height="20" />
+												<rect y="60" width="100" height="20" />
+										</svg>
+								</span>
+						</button>
+						Data Viewer
+				</div>
+		</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<a
-					class="btn btn-sm variant-ghost-surface"
-					href="https://discord.gg/EXqV7W8MtY"
-					target="_blank"
-					rel="noreferrer"
-				>
-					Discord
-				</a>
-				<a
-					class="btn btn-sm variant-ghost-surface"
-					href="https://twitter.com/SkeletonUI"
-					target="_blank"
-					rel="noreferrer"
-				>
-					Twitter
-				</a>
-				<a
-					class="btn btn-sm variant-ghost-surface"
-					href="https://github.com/skeletonlabs/skeleton"
-					target="_blank"
-					rel="noreferrer"
-				>
-					GitHub
-				</a>
+				
+				<LightSwitch  height="h-6" />
 			</svelte:fragment>
 		</AppBar>
+	</svelte:fragment>
+
+	<svelte:fragment slot="sidebarLeft">
+    <Navigation />
 	</svelte:fragment>
 	<!-- Page Route Content -->
 	<slot />
