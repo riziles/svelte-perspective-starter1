@@ -11,6 +11,7 @@
 	let plugin = 'Y Line'
 
 	let file1 = 'sampledata.csv'
+	let file2 = 'sampledata2.csv'
 
 	let newDate = new Date(today.setMonth(today.getMonth() - 12));
 	$: datefilter = newDate.toISOString().slice(0, 10);
@@ -42,9 +43,10 @@
 
 <div class="container p-10  h-full bg-white dark:bg-surface-900">
 
+	<flex class="flex">
 	<Perspective LAYOUT={LAYOUT} file={file1}/>
+	<Perspective LAYOUT={LAYOUT} file={file2}/>
 	<br/>
-
-	<button class="btn variant-filled">hi</button>
+</flex>
 
 </div>

@@ -1,0 +1,1 @@
+declare module '@finos/perspective-viewer-d3fc'

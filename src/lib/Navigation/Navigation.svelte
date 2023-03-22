@@ -5,23 +5,23 @@
 
 <Accordion>
 	<AccordionItem open>
-		<svelte:fragment slot="summary">Risk Snapshot</svelte:fragment>
+		<svelte:fragment slot="summary">Tables</svelte:fragment>
 		<svelte:fragment slot="content">
 			<nav class="list-nav p-2">
 				<ul>
-					<li><a href="/" >Summary</a></li>
-					<li><a href="/Page2" >Detail</a></li>
+					<li><a href="/" >1 Table</a></li>
+					<li><a href="/Page2" >2 Tables</a></li>
 				</ul>
 			</nav>
 	</svelte:fragment>
 	</AccordionItem>
 	<AccordionItem>
-		<svelte:fragment slot="summary">Performance</svelte:fragment>
+		<svelte:fragment slot="summary">Other</svelte:fragment>
 		<svelte:fragment slot="content">
 			<nav class="list-nav p-2">
 				<ul>
-					<li><a href="/index.html" >DoD</a></li>
-					<li><a href="/about" >MtD</a></li>
+					<li><a href="/Page3" >Credits</a></li>
+					<li><a href="/Page4" >More</a></li>
 				</ul>
 			</nav>
 		</svelte:fragment>

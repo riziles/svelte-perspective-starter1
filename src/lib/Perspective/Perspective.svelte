@@ -26,9 +26,9 @@
 		d3fc = await import('@finos/perspective-viewer-d3fc');
 		viewerModule = await import('@finos/perspective-viewer');
 
-		let plugin = await perspectiveSvelte.getPlugin('Y Area')
-		plugin.max_cells = 10000000;
-		plugin.max_columns = 10000000;		
+		let plugin = await perspectiveSvelte.getPlugin('Y Line')
+		plugin.max_cells = 100000000;
+		plugin.max_columns = 100000000;		
 
 		let WORKER = perspective.worker();
 		let REQ = fetch(assets + '/' + file);
@@ -46,12 +46,13 @@
 		if(mounted)
 		{
 		perspectiveSvelte.restore(LAYOUT);
+		perspectiveSvelte.toggleConfig(LAYOUT.settings)
 	}
 }
 
 </script>
 
-<!-- <div> -->
+<!-- <div> -->	
 	<perspective-viewer bind:this={perspectiveSvelte} />
 <!-- </div> -->
 
