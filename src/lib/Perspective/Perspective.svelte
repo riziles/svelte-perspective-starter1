@@ -45,7 +45,7 @@
 	$:{
 		if(mounted)
 		{
-		perspectiveSvelte.restore(LAYOUT);
+		// perspectiveSvelte.restore(LAYOUT);
 		perspectiveSvelte.toggleConfig(LAYOUT.settings)
 	}
 }
