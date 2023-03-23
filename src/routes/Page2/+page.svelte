@@ -1,12 +1,6 @@
 <script lang="ts">
 	import Perspective from '$lib/Perspective/Perspective.svelte';
-	import { modeCurrent } from '@skeletonlabs/skeleton';
 
-	$:  {
-		console.log($modeCurrent)
-}
-
-	let LAYOUT:object;
 	let today = new Date();
 	let plugin = 'Y Line'
 
@@ -16,8 +10,7 @@
 	let newDate = new Date(today.setMonth(today.getMonth() - 12));
 	$: datefilter = newDate.toISOString().slice(0, 10);
 
-	$: {
-		LAYOUT = {
+	let initial_layout = {
 			plugin: plugin,
 			plugin_config: {
 				legend: {
@@ -34,18 +27,17 @@
 			filter: [],
 			sort: [],
 			expressions: [],
-			aggregates: {},
-			theme: $modeCurrent?"Material Light":"Material Dark"
+			aggregates: {}
 		};
-	}
+
 </script>
 
 
 <div class="container p-10  h-full bg-white dark:bg-surface-900">
 
 	<flex class="flex">
-	<Perspective LAYOUT={LAYOUT} file={file1}/>
-	<Perspective LAYOUT={LAYOUT} file={file2}/>
+	<Perspective LAYOUT={initial_layout} file={file1}/>
+	<Perspective LAYOUT={initial_layout} file={file2}/>
 	<br/>
 </flex>
 

@@ -2,10 +2,11 @@
 	import { onMount } from 'svelte';
 	import perspective from '@finos/perspective';
 	import { assets, base } from '$app/paths';
+	import { modeCurrent } from '@skeletonlabs/skeleton';
 
 	import "@finos/perspective-viewer/dist/css/themes.css";
 
-    import type { PerspectiveViewerConfig } from '@finos/perspective-viewer/dist/esm/viewer';
+  import type { PerspectiveViewerConfig } from '@finos/perspective-viewer/dist/esm/viewer';
 
 	let table:any = [];
 
@@ -15,8 +16,11 @@
 	let d3fc;
 	let mounted = false
 
+	$: theme= $modeCurrent ? 'Material Light' : 'Material Dark'
+
 	export let LAYOUT: PerspectiveViewerConfig;
 	export let file: String
+	export let conf = true
 	// export let refresh: boolean;
 
 	// $:{console.log(refresh)};
@@ -46,7 +50,16 @@
 		if(mounted)
 		{
 		// perspectiveSvelte.restore(LAYOUT);
-		perspectiveSvelte.toggleConfig(LAYOUT.settings)
+		perspectiveSvelte.resetThemes([theme])
+	}
+}
+
+
+	$:{
+		if(mounted)
+		{
+		// perspectiveSvelte.restore(LAYOUT);
+		perspectiveSvelte.toggleConfig(conf)
 	}
 }
 
